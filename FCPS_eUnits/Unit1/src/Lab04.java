@@ -21,6 +21,7 @@ public class Lab04 {
     public static void main(String[] args) {
         Display.openWorld("maps/arena.map");
         Display.setSize(10, 10);
+        Display.setSpeed(10);
 
         Athlete GoalKeeper = new Athlete(1, 1, Display.NORTH, 0);
         Athlete Defender_Left = new Athlete(1, 1, Display.NORTH, 0);
