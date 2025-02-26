@@ -9,9 +9,23 @@
          super(1, y, Display.EAST, 0);
       
       }
-   	/*********************************
-   	 *                               *
-   	 * What methods must you define? *
-   	 *                               *
-   	 *********************************/
+   	public void workCorner(){
+         while(nextToABeeper())
+            pickBeeper();
+         for(int i=1;i<=myBeepers;i++)
+            putBeeper();
+         myBeepers = getBeepers();
+      }
+      public void moveOneBlock(){
+         move();
+      }
+      public void run(){
+         for(int n=1;n<=7;n++)
+         {
+            workCorner();
+            moveOneBlock();
+         }
+      }
+      public void turnToTheRight(){}
+      public void turnToTheNorth(){}
    }
