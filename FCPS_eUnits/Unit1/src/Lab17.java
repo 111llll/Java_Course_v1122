@@ -19,7 +19,13 @@
          Display.setSize(8, 8);
          Display.setSpeed(10);
          //escape_the_maze( new Democrat() );
-         escape_the_maze( new Republican() );
+         //escape_the_maze( new Republican() );
       	//escape_the_maze( new Independent() );
+         MazeEscaper rightWaller = new Republican();
+         MazeEscaper leftWaller = new Democrat();
+         Thread t1 = new Thread(rightWaller);
+         Thread t2 = new Thread(leftWaller);
+         t1.start();
+         t2.start();
       }
    }
