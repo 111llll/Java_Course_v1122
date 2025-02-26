@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\Liang\\OneDrive\\文件\\GitHub\\Java_Course_v1122\\FCPS_eUnits\\SetupFiles\\xercesImpl.jar",
+        "c:\\Users\\Liang\\OneDrive\\文件\\GitHub\\Java_Course_v1122\\FCPS_eUnits\\SetupFiles\\karel2_c.jar"
+    ]
+}
