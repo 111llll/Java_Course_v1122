@@ -26,6 +26,7 @@
                karel.turnAppropriately(numOfBeepers);
             }
          }
+         
          System.out.println("Total beepers: " + totalBeepers);
       }
    }
