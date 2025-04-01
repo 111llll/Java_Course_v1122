@@ -1,4 +1,5 @@
-	//Name______________________________ Date_____________
+   package Lab03;
+   
    import java.awt.*;
    import javax.swing.JPanel;
    import java.awt.image.BufferedImage;
@@ -17,14 +18,10 @@
          buffer.setColor(Color.YELLOW);
          for(int k = 0; k <= 50; k++)
          {
-            buffer.drawLine(N * k / 50, 0, N, N * k / 50);
-         
-            /************************/
-         	/*                      */
-         	/* Your code goes here. */
-         	/*                      */
-         	/************************/
-         
+            buffer.drawLine(N * k / 12, 0, N, N * k / 12);
+            buffer.drawLine(N, N*k/12, N-N*k/12, N);
+            buffer.drawLine(N-N*k/12, N , 0, N-N*k/12);
+            buffer.drawLine(0, N-N*k/12, N*k/12, 0);
          }
       
       	//sunshine
@@ -33,11 +30,11 @@
          int size = 100;					//length of each ray
          int r1 = 60, r2 = 55;			//radius of the sun
       
-         /************************/
-      	/*                      */
-      	/* Your code goes here. */
-      	/*                      */
-      	/************************/
+         for(int angle = 0;angle <= 360;angle += 30){
+            x1 = (int)(x+size*Math.cos(angle*Math.PI/180));
+            y1 = (int)(y+size*Math.sin(angle*Math.PI/180));
+            buffer.drawLine(x, y, x1, y1);
+         }
       
          buffer.setColor(Color.BLUE.brighter());
          buffer.fillOval(x - r1, y - r1, r1 * 2, r1 * 2);
