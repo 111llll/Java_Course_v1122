@@ -4,7 +4,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import Lab06.TurtlePanel;
-import edu.fcps.Turtle;
 
 public class Driver09 {
     public static void main(String[] args) {
@@ -14,7 +13,6 @@ public class Driver09 {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new TurtlePanel());
         frame.setVisible(true);
-        Turtle.clear(Color.white);
         TwistyTurtle rotatetriangle = new TwistyTurtle(1);
         TwistyTurtle rotatet = new TwistyTurtle(100,250,90,2);
         TwistyTurtle rotatetsquares = new TwistyTurtle(500,350,90,3);
