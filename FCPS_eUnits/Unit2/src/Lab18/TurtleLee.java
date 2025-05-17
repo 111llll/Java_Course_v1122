@@ -1,23 +1,22 @@
 package Lab18;
 
-// Torbert, 7.20.06
-
 import java.awt.Color;
 import java.awt.Graphics;
+// Torbert, 7.20.06
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-public class Turtle {
+public class TurtleLee {
 	private static BufferedImage img;
 	private static Graphics graphics;
-	private static int black = 0;
-	private static int blue = 255; // 2^8-1
-	private static int green = 65280; // (2^8-1)*2^8
-	private static int red = 16711680; // (2^8-1)*2^16
+//	private static int black = 0;
+//	private static int blue = 255; // 2^8-1
+//	private static int green = 65280; // (2^8-1)*2^8
+//	private static int red = 16711680; // (2^8-1)*2^16
 	private static int white = 16777215; // 2^24-1
-	private double x, y, theta; // what does a Turtle know?
 	private boolean penIsDown;
-	private Color turtleColor;
+	private double x, y, theta; // what does a Turtle know?
+	private Color TurtleColor;
 	private int x1, y1;
 	static // a static initializer list
 	{
@@ -25,7 +24,7 @@ public class Turtle {
 		graphics = img.getGraphics();
 	}
 
-	public Turtle() {
+	public TurtleLee() {
 		// img = new BufferedImage(800,600,BufferedImage.TYPE_INT_RGB);
 		x = img.getWidth() / 2; // start at center
 		y = img.getHeight() / 2; // start at center
@@ -54,6 +53,8 @@ public class Turtle {
 		}
 		x = (int) (x + r * Math.cos(theta * Math.PI / 180));
 		y = (int) (y - r * Math.sin(theta * Math.PI / 180));
+
+		// drawLine(x,y,x1,y1);
 	}
 
 	public void back(double r) {
@@ -68,17 +69,13 @@ public class Turtle {
 		y = (int) (y + r * Math.sin(theta * Math.PI / 180));
 	}
 
-	public void setPenDown(boolean x) {
-		this.penIsDown = x;
-	}
-
 	public Color getColor() {
-		return turtleColor;
+		return TurtleColor;
 	}
 
 	public void setColor(Color c) {
-		turtleColor = c;
-		graphics.setColor(turtleColor);
+		TurtleColor = c;
+		graphics.setColor(TurtleColor);
 	}
 
 	public static void clear(Color c) {
@@ -91,12 +88,16 @@ public class Turtle {
 		clear(Color.black);
 	}
 
-	public void drawLine(int x1, int y1, int x2, int y2) {
+	public void drawLine(int x1, int yl, int x2, int y2) {
 		int ix, iy;
 		double slope = (double) (x2 - x1) / (y2 - y1);
 		for (ix = x1; ix <= x2; ix++) {
 			iy = (int) (y1 + slope * (ix - x1));
 			img.setRGB(ix, iy, white);
 		}
+	}
+
+	public void setPenDown(boolean x) {
+		this.penIsDown = x;
 	}
 }

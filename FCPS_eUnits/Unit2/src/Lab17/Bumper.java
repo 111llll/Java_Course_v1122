@@ -1,20 +1,20 @@
+package Lab17;
+
 // Name: 				Date:
-   package Lab14;
 
    import java.awt.*;
-   
-   import Lab10.Polkadot;
+
+import Lab10.Polkadot;
    
     public class Bumper
    {
     //private fields, all ints, for a Bumper
-    //hint: the "location" of the bumper begins at its top left corner.      
-      private int X;
+    //hint: the "location" of the bumper begins at its top left corner.
+    	private int X;
     	private int Y;
     	private int XWidth;
     	private int YWidth;
     	private Color Color;
-   
    
      //constructors
        public Bumper()         //default constructor
@@ -23,7 +23,7 @@
       }
        public Bumper(int x, int y, int xWidth, int yWidth, Color c)
       {
-         super();
+    	   super();
     	   X=x;
     	   Y=y;
     	   XWidth=xWidth;
@@ -61,6 +61,9 @@
       public void setColor(Color color) {
     	  Color=color;
       }
+      
+      
+      
      // accessor methods  (one for each field)
    
      // modifier methods  (one for each field)
@@ -70,8 +73,8 @@
         public void jump(int rightEdge, int bottomEdge)
       {
          // moves location to random (x, y) within the edges
-         X = (int) (Math.random()* (rightEdge-XWidth*2) + XWidth);
-         Y = (int) (Math.random()* (bottomEdge-YWidth*2) + YWidth);
+        	X = (int) (Math.random()* (rightEdge-XWidth*2) + XWidth);
+            Y = (int) (Math.random()* (bottomEdge-YWidth*2) + YWidth);
       }
       
        // draws a rectangular bumper on the buffer

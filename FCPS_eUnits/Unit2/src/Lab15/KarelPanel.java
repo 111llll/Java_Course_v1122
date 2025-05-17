@@ -1,3 +1,5 @@
+package Lab15;
+
    //Torbert, e-mail: mr@torbert.com, website: www.mr.torbert.com
 	//version 6.17.2003
 
@@ -19,14 +21,14 @@
          myImage =  new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
          myBuffer = myImage.getGraphics();
          myArray = new ImageIcon[4];
-         myArray[0] = new ImageIcon("karele.gif");   //east
-         myArray[1] = new ImageIcon("kareln.gif");   //north
-         myArray[2] = new ImageIcon("karelw.gif");   //west
-         myArray[3] = new ImageIcon("karels.gif");   //south
+         myArray[0] = new ImageIcon(getClass().getResource("karele.gif"));   //east
+         myArray[1] = new ImageIcon(getClass().getResource("kareln.gif"));   //north
+         myArray[2] = new ImageIcon(getClass().getResource("karelw.gif"));   //west
+         myArray[3] = new ImageIcon(getClass().getResource("karels.gif"));   //south
          dir = 0;     //start facing east
          xPos = 5;    //starting xPos
          yPos = HEIGHT - 3 - myArray[dir].getImage().getHeight(null); //starting yPos
-         Timer t = new Timer(250, new Listener());
+         Timer t = new Timer(100, new Listener());
          t.start();
       }
        public void paintComponent(Graphics g)
@@ -42,22 +44,58 @@
             myBuffer.setColor(Color.red);
             for(int x = 17; x < WIDTH; x += 30) //vertical lines
             {
-               myBuffer.drawLine(/*     */);
+               myBuffer.drawLine(x,0,x,HEIGHT);
             }
             for(int y = 9; y < HEIGHT; y += 28) //horizontal lines
             {
-               myBuffer.drawLine(/*     */);
+               myBuffer.drawLine(0,y,WIDTH,y);
             }
             myBuffer.fillRect(107, 121, 180, 56);
             myBuffer.setColor(Color.black);
             myBuffer.setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 20));
             myBuffer.drawString("Karel the Robot", 125, 155);
             
-         	/*************************************
-         	Calculate karel's xPos and yPos.
-         	At the end of each row, the dir changes.
-         	The dir controls which image to use.
-         	*************************************/
+            switch (dir) {
+			case 0:
+				if (xPos < 353)
+					xPos += 15;
+				else {
+					dir++;
+					xPos = 363;
+					yPos = 361;
+				}
+				break;
+			case 1:
+				if (yPos > 0)
+					yPos -= 14;
+				else {
+					dir++;
+					xPos = 365;
+					yPos = -5;
+				}
+				break;
+			case 2:
+				if (xPos > 17)
+					xPos -= 15;
+				else {
+					dir++;
+					xPos = 3;
+					yPos = -3;
+				}
+				break;
+			case 3:
+				if (yPos < 360)
+					yPos += 14;
+				else {
+					dir=0;
+					xPos = 5;
+					yPos = 359;
+				}
+				break;
+
+			default:
+				break;
+			}
             myBuffer.drawImage(myArray[dir].getImage(), xPos, yPos, null);
             
             repaint();

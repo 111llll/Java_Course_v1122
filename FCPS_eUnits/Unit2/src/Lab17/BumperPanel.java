@@ -1,4 +1,4 @@
-package Lab14;
+package Lab17;
 
 	// Phil Ero 15JUL08
 	
@@ -6,6 +6,8 @@ package Lab14;
 
 import Lab10.Polkadot;
 import Lab11.Ball;
+import Lab17.BumperPanel.key;
+import Lab17.PrizePanel.Key;
 
 import java.awt.*;
    import java.awt.event.*;
@@ -13,7 +15,8 @@ import java.awt.*;
    
     public class BumperPanel extends JPanel
    {
-      private static final int FRAME = 400;
+      
+	private static final int FRAME = 400;
       private static final Color BACKGROUND = new Color(204, 204, 204);
       private static final Color BALL_COLOR = Color.BLACK;
       private static final Color PRIZE_COLOR = Color.RED;
@@ -66,6 +69,10 @@ import java.awt.*;
          hits = 0;
          timer = new Timer(5, new Listener());
          timer.start();
+         
+        addKeyListener(new key());
+ 		setFocusable(true);
+ 		
       }
       
        public void paintComponent(Graphics g)
@@ -123,4 +130,37 @@ import java.awt.*;
       {
          return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
+       
+       public class key implements KeyListener {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				switch (e.getKeyCode()) {
+				case 'W':
+					bumper.setY(bumper.getY() - 10);
+					break;
+				case 'A':
+					bumper.setX(bumper.getX() - 10);
+					break;
+				case 'S':
+					bumper.setY(bumper.getY() + 10);
+					break;
+				case 'D':
+					bumper.setX(bumper.getX() + 10);
+					break;
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		}
    }
